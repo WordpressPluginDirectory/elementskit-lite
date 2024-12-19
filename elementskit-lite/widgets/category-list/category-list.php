@@ -34,9 +34,14 @@ class ElementsKit_Widget_Category_List extends Widget_Base {
     public function get_help_url() {
         return 'https://wpmet.com/doc/category-list/';
     }
+
     protected function is_dynamic_content(): bool {
         return false;
     }
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! Plugin::$instance->experiments->is_feature_active( 'e_optimized_markup' );
+	}
 
 	protected function register_controls() {
 		$this->start_controls_section(
@@ -503,6 +508,4 @@ class ElementsKit_Widget_Category_List extends Widget_Base {
 		</ul>
 		<?php
 	}
-
-
 }

@@ -38,9 +38,14 @@ class ElementsKit_Widget_Back_To_Top extends Widget_Base {
 	public function get_script_depends() {
 		return ['animate-circle'];
 	}
+
     protected function is_dynamic_content(): bool {
         return false;
     }
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! Plugin::$instance->experiments->is_feature_active( 'e_optimized_markup' );
+	}
 
     protected function register_controls() {
         /* 

@@ -18,20 +18,7 @@
 						<<?php echo esc_attr( $wrapTag ); ?> class="elementskit-single-testimonial-slider elementskit-testimonial-slider-block-style elementskit-testimonial-slider-block-style-three <?php echo esc_attr(!empty($testimonial['ekit_testimonial_active']) ? 'testimonial-active' : ''); ?> elementor-repeater-item-<?php echo esc_attr( $testimonial[ '_id' ] ); ?>" <?php echo $this->get_render_attribute_string( 'link-' . esc_attr($testimonial['_id'] )); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already escaped by elementor ?>>
 							<?php if(isset($ekit_testimonial_wartermark_enable) && ($ekit_testimonial_wartermark_enable == 'yes')):?>
 							<div class="elementskit-watermark-icon elementskit-icon-content <?php if($ekit_testimonial_wartermark_mask_show_badge == 'yes') : ?> commentor-badge <?php endif; ?>">
-								<?php
-									// new icon
-									$migrated = isset( $settings['__fa4_migrated']['ekit_testimonial_wartermarks'] );
-									// Check if its a new widget without previously selected icon using the old Icon control
-									$is_new = empty( $settings['ekit_testimonial_wartermark'] );
-									if ( $is_new || $migrated ) {
-										// new icon
-										\Elementor\Icons_Manager::render_icon( $settings['ekit_testimonial_wartermarks'], [ 'aria-hidden' => 'true' ] );
-									} else {
-										?>
-										<i class="<?php echo esc_attr($settings['ekit_testimonial_wartermark']); ?>" aria-hidden="true"></i>
-										<?php
-									}
-								?>
+								<?php \Elementor\Icons_Manager::render_icon( $settings['ekit_testimonial_wartermarks'], [ 'aria-hidden' => 'true' ] ); ?>
 							</div>
 							<?php endif;?>
 							<?php if (!empty($testimonial['client_photo']['url'])):
@@ -95,8 +82,12 @@
 		<?php endif; ?>
 
 		<?php if(!empty($settings['ekit_testimonial_show_arrow'])) : ?>
-			<div class="swiper-navigation-button swiper-button-prev"><i class="<?php echo esc_attr($prevArrowIcon); ?>"></i></div>
-			<div class="swiper-navigation-button swiper-button-next"><i class="<?php echo esc_attr($nextArrowIcon); ?>"></i></div>
+			<div class="swiper-navigation-button swiper-button-prev">
+				<?php \Elementor\Icons_Manager::render_icon($ekit_testimonial_left_arrows, [ 'aria-hidden' => 'true' ]); ?>
+			</div>
+			<div class="swiper-navigation-button swiper-button-next">
+				<?php \Elementor\Icons_Manager::render_icon($ekit_testimonial_right_arrows, [ 'aria-hidden' => 'true' ]); ?>
+			</div>
 		<?php endif; ?>
 	</div>
 </div>

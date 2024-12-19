@@ -4,7 +4,7 @@ Tags: Elementor addons, mega menu builder,  header footer builder, elementor add
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 3.3.3
+Stable tag: 3.3.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -440,6 +440,11 @@ Visit  [wpmet](https://wpmet.com/)  to learn more about how to get the best of W
 
 
 == Changelog ==
+ElementsKit Elementor Addons Version: 3.3.4 (2024-12-19)
+Added: Compatibility support for Elementor 3.26 in widgets relying on `Swiper`
+Added: Compatibility support for Elementor 3.26 in `has_widget_inner_wrapper()` for certain widgets
+Fixed: Star rating color is not working in testimonial widget
+
 ElementsKit Elementor Addons Version: 3.3.3 (2024-12-07)
 Added: Typography control for header search widget input
 Added: Icon size control for header search widget input

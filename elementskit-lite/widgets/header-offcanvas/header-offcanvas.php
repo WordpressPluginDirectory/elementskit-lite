@@ -36,9 +36,15 @@ class ElementsKit_Widget_Header_Offcanvas extends Widget_Base
     public function get_help_url() {
         return 'https://wpmet.com/doc/header-offcanvas/';
     }
+	
     protected function is_dynamic_content(): bool {
         return true;
     }
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! Plugin::$instance->experiments->is_feature_active( 'e_optimized_markup' );
+	}
+
     protected function register_controls()
     {
 

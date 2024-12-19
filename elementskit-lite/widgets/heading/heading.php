@@ -35,9 +35,14 @@ class ElementsKit_Widget_Heading extends Widget_Base {
     public function get_help_url() {
         return 'https://wpmet.com/doc/widget-documentation/';
     }
+
     protected function is_dynamic_content(): bool {
         return false;
     }
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! Plugin::$instance->experiments->is_feature_active( 'e_optimized_markup' );
+	}
 
     protected function register_controls() {
 

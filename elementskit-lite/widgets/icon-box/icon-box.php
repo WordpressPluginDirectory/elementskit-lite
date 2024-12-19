@@ -35,9 +35,14 @@ class ElementsKit_Widget_Icon_Box extends Widget_Base {
     public function get_help_url() {
         return 'https://wpmet.com/doc/icon-box-4/';
     }
+
     protected function is_dynamic_content(): bool {
         return false;
     }
+
+	public function has_widget_inner_wrapper(): bool {
+		return ! Plugin::$instance->experiments->is_feature_active( 'e_optimized_markup' );
+	}
 
     protected function register_controls() {
 
@@ -60,7 +65,9 @@ class ElementsKit_Widget_Icon_Box extends Widget_Base {
                 'default'   => 'disable',
                 'prefix_class'  => 'ekit-equal-height-',
                 'selectors' => [
-					'{{WRAPPER}}.ekit-equal-height-enable, {{WRAPPER}}.ekit-equal-height-enable .elementor-widget-container, {{WRAPPER}}.ekit-equal-height-enable .ekit-wid-con, {{WRAPPER}}.ekit-equal-height-enable .ekit-wid-con .elementskit-infobox' => 'height: 100%;',
+					'{{WRAPPER}}.ekit-equal-height-enable,
+					{{WRAPPER}}.ekit-equal-height-enable .ekit-wid-con,
+					{{WRAPPER}}.ekit-equal-height-enable .ekit-wid-con .elementskit-infobox' => 'height: 100%;',
                 ],
             ]
         );

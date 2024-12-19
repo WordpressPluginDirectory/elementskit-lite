@@ -46,20 +46,7 @@
 								<?php if(isset($ekit_testimonial_wartermark_enable) && $ekit_testimonial_wartermark_enable == 'yes'):?>
 									
 									<span class="elementskit-watermark-icon ekit_watermark_icon_custom_position">
-										<?php
-											// new icon
-											$migrated = isset( $settings['__fa4_migrated']['ekit_testimonial_wartermarks'] );
-											// Check if its a new widget without previously selected icon using the old Icon control
-											$is_new = empty( $settings['ekit_testimonial_wartermark'] );
-											if ( $is_new || $migrated ) {
-												// new icon
-												\Elementor\Icons_Manager::render_icon( $settings['ekit_testimonial_wartermarks'], [ 'aria-hidden' => 'true' ] );
-											} else {
-												?>
-												<i class="<?php echo esc_attr($settings['ekit_testimonial_wartermark']); ?>" aria-hidden="true"></i>
-												<?php
-											}
-										?>
+										<?php \Elementor\Icons_Manager::render_icon( $settings['ekit_testimonial_wartermarks'], [ 'aria-hidden' => 'true' ] ); ?>
 									</span>
 
 								<?php endif;?>
@@ -92,8 +79,12 @@
 		<?php endif; ?>
 
 		<?php if(!empty($settings['ekit_testimonial_show_arrow'])) : ?>
-			<div class="swiper-navigation-button swiper-button-prev"><i class="<?php echo esc_attr($prevArrowIcon); ?>"></i></div>
-			<div class="swiper-navigation-button swiper-button-next"><i class="<?php echo esc_attr($nextArrowIcon); ?>"></i></div>
+			<div class="swiper-navigation-button swiper-button-prev">
+				<?php \Elementor\Icons_Manager::render_icon($ekit_testimonial_left_arrows, [ 'aria-hidden' => 'true' ]); ?>
+			</div>
+			<div class="swiper-navigation-button swiper-button-next">
+				<?php \Elementor\Icons_Manager::render_icon($ekit_testimonial_right_arrows, [ 'aria-hidden' => 'true' ]); ?>
+			</div>
 		<?php endif; ?>
 	</div>
 </div>
