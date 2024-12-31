@@ -1838,6 +1838,7 @@ class ElementsKit_Widget_Testimonial extends Widget_Base {
 						'unit' => 'px',
 						'size' => -98,
 					],
+					'render_type' => 'template',
 					'selectors' => [
 						'{{WRAPPER}} .elementskit-commentor-bio' => 'bottom: {{SIZE}}{{UNIT}};',
 					],

@@ -124,7 +124,7 @@ class ElementsKit_Widget_Heading extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control( 'title_float_left', [
+		$this->add_control( 'title_float_left', [
 			'label' => esc_html__( 'Float Left', 'elementskit-lite' ),
 			'type' => Controls_Manager::SWITCHER,
 			'default' => 'no',
@@ -133,7 +133,7 @@ class ElementsKit_Widget_Heading extends Widget_Base {
 		$this->add_responsive_control( 'title_float_left_width', [
 			'label' => __( 'Title Width', 'elementskit-lite' ),
 			'type' => Controls_Manager::SLIDER,
-			'size_units' => [ '%' ],
+			'size_units' => [ '%', 'px' ],
 			'default' => [ 'unit' => '%', 'size' => '40' ],
 			'range' => [
 				'%' => [
@@ -148,7 +148,7 @@ class ElementsKit_Widget_Heading extends Widget_Base {
 			],
 			'condition' => [
 				'title_float_left' => 'yes'	
-			]
+			],
 		]);
 
 		$this->end_controls_section();

@@ -360,8 +360,7 @@ class ElementsKit_Widget_Category_List extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .elementor-icon-list-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-icon-list-icon svg path'	=> 'stroke: {{VALUE}}; fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-icon-list-icon' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -373,8 +372,7 @@ class ElementsKit_Widget_Category_List extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'default' => '',
 				'selectors' => [
-					'{{WRAPPER}} .elementor-icon-list-item:hover .elementor-icon-list-icon i' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .elementor-icon-list-item:hover .elementor-icon-list-icon svg path'	=> 'stroke: {{VALUE}}; fill: {{VALUE}};',
+					'{{WRAPPER}} .elementor-icon-list-item:hover .elementor-icon-list-icon' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -393,8 +391,7 @@ class ElementsKit_Widget_Category_List extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-icon-list-icon' => 'width: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .elementor-icon-list-icon i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-icon-list-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -494,12 +491,11 @@ class ElementsKit_Widget_Category_List extends Widget_Base {
 					<a href="<?php echo esc_url(get_category_link($post->term_id)); ?>" <?php echo $this->get_render_attribute_string('list_bg_' . $index); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already escaped by elementor ?>>
                         <?php if (!empty($item['icons']['value'])) : ?>
                             <span class="elementor-icon-list-icon">
-								<?php Icons_Manager::render_icon( $item['icons'], [ 'aria-hidden' => 'true' ] ); ?>
+								<?php Icons_Manager::render_icon($item['icons'], [ 'aria-hidden' => 'true' ]); ?>
                             </span>
                         <?php endif; ?>
                         <span class="elementor-icon-list-text"><?php echo esc_html($text); ?></span>
 					</a>
-
 				</li>
 				<?php
                 endif;
